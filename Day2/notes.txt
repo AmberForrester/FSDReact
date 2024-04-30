@@ -1,0 +1,20 @@
+React is a JS Library
+Cretaed at Facebook
+Open source in 2013
+https://react.dev/
+
+---code editors
+chrome extension (react-developer-tools)
+https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
+after installing go to browser's settings ---extension ---select react-dev-tools ------check Allow access to file URLs
+
+React Sandbox
+--react.new in the url--
+https://codesandbox.io/p/sandbox/react-new?utm_source=dotnew
+
+VS Code extension
+ES7+ React/Redux/React-Native s
+
+Babel
+https://babeljs.io/docs/babel-standalone
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
