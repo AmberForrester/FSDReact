@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>React Elements</title>
+</head>
+<body>
+    
+    <h1 style="color:green"> Welcome to CBC!</h1>
+
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+
+    <script type="text/javascript">
+        
+        ReactDOM.render(
+
+            React.createElement("h1", null, "Learning React"),
+
+            document.getElementById("root")
+        );
+
+        let heading = React.createElement("h1", {style:{color:"red"}}, "Learning React at CBC");
+
+        ReactDOM.render(heading, document.getElementById("root2"));
+
+    </script>
+
+
+    <script type="text/babel">
+
+        //let ul = React.createElement(
+            // "ul", {style: {color:"blue"}},
+            // React.createElement("li", null, "HTML"),
+            // React.createElement("li", null, "JavaScript")
+            // React.createElement("li", null, "CSS")
+            // React.createElement("li", null, "React")
+    // );
+
+    let course1 = "HTML";
+    let course2 = "JavaScript";
+    let course3 = "CSS";
+    let course4 = "React";
+    let course5 = "React (written in lower case)"
+
+    ReactDOM.render (
+        <ul>
+            <li>{course1}</li>
+            <li>{course2}</li>
+            <li>{course3}</li>
+            <li>{course4}</li>
+            <li>{course5.toLocaleLowerCase()}</li>
+            <li>{course4.length}</li>  
+        </ul>,
+
+        document.getElementById("root3")
+    );
+
+    </script>
+
+
+</body>
+</html>
