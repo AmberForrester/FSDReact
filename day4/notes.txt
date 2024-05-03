@@ -18,3 +18,15 @@ ES7+ React/Redux/React-Native s
 Babel
 https://babeljs.io/docs/babel-standalone
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+Components: name your components with UpperCase
+
+cmd (commands in Terminals)
+change directory ----- cd 
+list of file in the directory ----- dir 
+present working directory ----- pwd 
+go back one directory ----- cd ..
+go back to the root ----- cd / 
+
+Creating React App using 'CRA'
+npx create-react-app *insert-name-of-file 

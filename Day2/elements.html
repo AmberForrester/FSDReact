@@ -19,6 +19,8 @@
     <div id="root"></div>
     <div id="root2"></div>
     <div id="root3"></div>
+    <div id="root4"></div>
+    <div id="root5"></div>
 
     <script type="text/javascript">
         
@@ -32,6 +34,13 @@
         let heading = React.createElement("h1", {style:{color:"red"}}, "Learning React at CBC");
 
         ReactDOM.render(heading, document.getElementById("root2"));
+
+    // Example not using JSX - 
+        const myExample = React.createElement('h1', null, 'I did not use JSX');
+
+        const roots = ReactDOM.createRoot(document.getElementById("root5"));
+
+        roots.render(myExample);
 
     </script>
 
@@ -64,6 +73,13 @@
 
         document.getElementById("root3")
     );
+
+    //Example using JSX - 
+        const myElement = <h1>I love JSX!</h1>;
+
+        const root = ReactDOM.createRoot (document.getElementById("root4"));
+
+        root.render(myElement);
 
     </script>
 
