@@ -1,0 +1,247 @@
+body,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+dl,
+blockquote,
+pre {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+header,
+nav,
+section,
+aside,
+footer {
+  display: block;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  background-color: #ff8500;
+  color: #fff;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p a {
+  color: #f7df04;
+  text-decoration: none;
+}
+
+#hero {
+  background-image: url("./images/jobZilaMain.jpg");
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  align-items: center;
+  text-align: center;
+  color: #eaaa82;
+}
+#hero-section {
+  text-align: center;
+  margin-top: 100px;
+}
+#privacy-section {
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+#terms-section {
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+#hero-section h2 {
+  color: rgb(165, 153, 209);
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.vission-statment {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: rgb(216, 216, 233);
+}
+
+/*
+main {
+  /*padding: 20px;*/
+/* background-color: #333;
+}
+*/
+
+#job-listings {
+  padding: 20px;
+}
+
+#job-listings h2 {
+  margin-bottom: 10px;
+}
+.job-listing {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.job-listing h3 {
+  margin-bottom: 10px;
+}
+
+.job-listing p {
+  margin-bottom: 10px;
+}
+
+#terms-section h2 {
+  margin-bottom: 10px;
+}
+
+.terms-listing {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#privacy-section h2 {
+  margin-bottom: 10px;
+}
+
+.privacy-policy {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Contact Us Form CSS Start*/
+
+#contact-form-section {
+  padding: 20px;
+}
+
+#contact-form-section h2 {
+  margin-bottom: 10px;
+}
+
+#contact-form {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  resize: vertical;
+}
+
+#contact-form input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  margin-top: 50px;
+  border: none;
+}
+.form-div {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+/* Contact Us Form CSS Finished*/
+
+/* Job Search Form CSS Start*/
+
+#job-search-section {
+  padding: 20px;
+}
+
+#job-search-section h2 {
+  margin-bottom: 10px;
+}
+
+#search-form {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+#search-form input,
+#search-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  resize: vertical;
+}
+
+#search-form input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  margin-top: 20px;
+  border: none;
+}
+.find-job-div {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+/* Job Search Form CSS Finished*/
