@@ -1,26 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin></script>
 
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin></script>
 
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <title>React Components</title>
 
-</head>
-<body>
+  </head>
+  <body>
 
     <div id="root"></div>
 
     <script type="text/babel">
 
-        
+      const courses = ["React", "MongoDb", "HTML", "CSS", "CSharp", "Node"];
+
+      const coursesObj = courses.map((course, i) => ({
+        id: i,
+        courseTitle: course,
+      }));
+
+      function Header(props) {
+        return (
+          <header>
+            <h1>Welcome to {props.title}</h1>
+          </header>
+        );
+      }
+
+      function Main(props) {
+        //console.log(props.courses);
+        return (
+          <section>
+            <p>We are learning to {props.myLearn}</p>
+
+            <img
+              width={300}
+              height={300}
+              src="/Day3/images/codingJS_1.jpg"
+              alt=""
+            />
+            <ul>
+              {props.courses.map((course) => (
+                <li key={course.id}>{course.courseTitle}</li>
+              ))}
+            </ul>
+          </section>
+        );
+      }
+
+      function Footer(props) {
+        return <footer> Copyright &copy; {props.year}</footer>;
+      }
+
+      function App() {
+        return (
+          <React.Fragment>
+            <Header title="Learning React" />
+            <Main myLearn="code" courses={coursesObj} />
+            <Footer year={new Date().getFullYear()} />
+          </React.Fragment>
+        );
+      }
+
+      ReactDOM.render(
+        <App />,
+        document.getElementById("root")
+      );
+
     </script>
-    
-</body>
+  </body>
 </html>
