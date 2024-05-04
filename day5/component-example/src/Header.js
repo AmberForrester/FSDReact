@@ -3,13 +3,11 @@ import React from 'react'
 const Header = () => {
   
     return ( 
-        <div>
-
-
-
-        </div>
-  )
-}
+        <header>
+          <h1>Welcome to Learning React</h1>
+        </header>
+  );
+};
 
 export default Header
 
