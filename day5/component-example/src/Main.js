@@ -1,15 +1,11 @@
 import React from 'react'
 
 function Main() {
-    
-    const myName = () => {
-        
-        const name = ["Amber", "Sadeed", "Salah", "Suzanne", "Syed"];
-
-        const n = Math.floor(Math.random * 4);
-
-        return name[n];
-    };
+  const myName = () => {
+    const name = ["Sadeed", "Amber", "Suzane", "Salah"];
+    const n = Math.floor(Math.random() * 4);
+    return name[n];
+  };
 
     return (
         <section>
