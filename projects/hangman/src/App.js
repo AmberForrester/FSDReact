@@ -3,7 +3,7 @@ import { HangmanDrawing } from "./Drawing";
 import { HangmanWord } from "./Words";
 import { Keyboard } from "./Keyboard";
 import words from "./wordList.json";
-import './Keyboard.css';
+import "./Keyboard.css";
 
 function getWord() {
   return words[Math.floor(Math.random() * words.length)];

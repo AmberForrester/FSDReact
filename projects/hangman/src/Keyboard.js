@@ -1,5 +1,5 @@
 import React from "react";
-import './Keyboard.css';
+import "./Keyboard.css";
 
 const KEYS = [
   "a",
