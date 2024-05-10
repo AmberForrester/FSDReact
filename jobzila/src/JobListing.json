@@ -48,11 +48,51 @@
       "applyLink": "https://example.com/apply"
     },
     {
-      "jobid": "6",
-      "title": "Marketing Specialist",
-      "company": "Marketing Solutions Inc.",
-      "location": "Boston, MA",
-      "description": "We are seeking a dynamic Marketing Specialist to create and implement marketing...",
-      "applyLink": "https://example.com/apply"
-    }
+        "jobid": "7",
+        "title": "Front-end Developer",
+        "company": "ABC Company",
+        "location": "New York, NY",
+        "description": "We are seeking a talented Front-end Developer to join our team...",
+        "applyLink": "https://example.com/apply"
+      },
+      {
+        "jobid": "8",
+        "title": "Back-end Developer",
+        "company": "XYZ Corporation",
+        "location": "San Francisco, CA",
+        "description": "We are looking for an experienced Back-end Developer to work on our...",
+        "applyLink": "https://example.com/apply"
+      },
+      {
+        "jobid": "9",
+        "title": "UI/UX Designer",
+        "company": "DEF Design Studio",
+        "location": "Chicago, IL",
+        "description": "We are seeking a creative UI/UX Designer to join our design team...",
+        "applyLink": "https://example.com/apply"
+      },
+      {
+        "jobid": "10",
+        "title": "Software Engineer",
+        "company": "123 Tech Inc.",
+        "location": "Seattle, WA",
+        "description": "We are hiring a skilled Software Engineer to develop innovative software...",
+        "applyLink": "https://example.com/apply"
+      },
+      {
+        "jobid": "11",
+        "title": "Data Scientist",
+        "company": "Data Analytics Co.",
+        "location": "Los Angeles, CA",
+        "description": "We are looking for a data-driven Data Scientist to analyze and interpret data...",
+        "applyLink": "https://example.com/apply"
+      },
+      {
+        "jobid": "12",
+        "title": "Marketing Specialist",
+        "company": "Marketing Solutions Inc.",
+        "location": "Boston, MA",
+        "description": "We are seeking a dynamic Marketing Specialist to create and implement marketing...",
+        "applyLink": "https://example.com/apply"
+      }
   ]
