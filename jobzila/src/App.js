@@ -6,8 +6,6 @@ import Main from './Main';
 import Footer from './Footer';
 
 
-import jobs from "./JobListing.json";
-
 function App() {
   return (
     <div className="App">
