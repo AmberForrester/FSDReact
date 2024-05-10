@@ -1,35 +1,42 @@
-import React from 'react'
+import React from 'react';
+import { useState } from "react";
+import jobs from "./JobListing.json";
+import './App.css';
 
 const JobListings = () => {
 
-    let jobListingContainer = document.getElementById("job-listings-container");
-    for (let i = 0; i < data.length; i++) {
-      let jobListing = data[i];
-      let jobListingElement = document.createElement("div");
-      jobListingElement.classList.add("job-listing");
-      jobListingElement.innerHTML = `
-      
-            <h3>${jobListing.title}</h3>
-            <p>${jobListing.company}</p>
-            <p>${jobListing.location}</p>
-            <p>${jobListing.description}</p>
+  return (
 
+    <main>
 
-`;
-      jobListingContainer.appendChild(jobListingElement);
-    }
+      <section id="job-listings" className="container">
 
-    return (
-        <main>
-          <section id="job-listings" class="container">
-            <h2>Job Listings</h2>
-            <div id="job-listings-container"></div>
-          </section>
-        </main>
-      )
-      
-  };
+        <h2>Job Listings</h2>
 
-  
+        <div id="job-listings-container">
 
-export default JobListings
+          {jobs.map((job, index) => (
+
+            <div className="job-listing" key={index}>
+
+              <h3>{job.title}</h3>
+
+              <p>{job.company}</p>
+
+              <p>{job.location}</p>
+
+              <p>{job.description}</p>
+
+            </div>
+
+          ))};
+
+        </div>
+
+      </section>
+
+    </main>
+  );
+};
+
+export default JobListings;
