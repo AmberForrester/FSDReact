@@ -19,14 +19,93 @@ Babel
 https://babeljs.io/docs/babel-standalone
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-Components: name your components with UpperCase
+Compenents
+Name you components with UpperCase
 
-cmd (commands in Terminals)
-change directory ----- cd 
-list of file in the directory ----- dir 
-present working directory ----- pwd 
+
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/help
+cmd
+change directory ------ cd 
+list of file in the directory ------ dir
+present working directory----------- pwd
 go back one directory ----- cd ..
-go back to the root ----- cd / 
+go back to the root ---- cd /
 
-Creating React App using 'CRA'
-npx create-react-app *insert-name-of-file 
+
+Creating React App using CRA
+npx create-react-app name-of-the-application
+
+prop drilling
+day7
+
+useEffect Hook
+The useEffect Hook allows you to perform side effects in your components.
+
+Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+
+useEffect accepts two arguments. The second argument is optional.
+
+useEffect(<function>, <dependency>)
+
+https://www.w3schools.com/react/react_useeffect.asp
+
+//useEffect ( ()=> {}, []   );
+
+import { useEffect, useState } from "react";
+
+function App() {
+  const [emotion, setEmotion] = useState("happy");
+
+//useEffect ( ()=> {}, []   );
+
+  useEffect(() => {
+    console.log(`My initial emotion is ${emotion} `);
+  }, [emotion]);
+
+  return (
+    <div className="App">
+      <h1>Current emotion is {emotion}</h1>
+
+      <button onClick={() => setEmotion("Sad")}>Sad</button>
+      <button onClick={() => setEmotion("Excited")}>Excited</button>
+
+    </div>
+  );
+}
+
+export default App;
+
+//Setting up the json server
+create a data folder in the root of the project
+create a file in the data folder with the extension db.json
+and add items data in the json file Cretaed
+
+{
+    "items": [
+        {
+            "id": 1,
+            "checked": false,
+            "item": "Milk"
+        },
+        {
+            "id": 2,
+            "checked": false,
+            "item": "Cake"
+        },
+        {
+            "id": 3,
+            "checked": false,
+            "item": "Bread"
+        }
+    ]
+}
+
+npx json-server -p 3500 -w data/db.json
+
+  Resources
+  http://localhost:3500/items
+
+  check the url in thr browser
+
+  check the individual items with their ids  
+  http://localhost:3500/items/1

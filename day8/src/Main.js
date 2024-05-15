@@ -9,6 +9,7 @@ const Main = ({ items, handleDelete, handleCheck }) => {
           items={items}
           handleDelete={handleDelete}
           handleCheck={handleCheck}
+          key={items.map(item => item.id).join('-')}
         />
       ) : (
         <p style={{ marginTop: "2rem" }}>Your list is empty</p>
