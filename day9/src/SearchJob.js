@@ -1,6 +1,7 @@
 import React from 'react'
 
 const SearchJob = ({search, setSearch}) => {
+    
   return (
     <form className="searchForm" onSubmit={(e) => e.preventDefault}>
       <label>Search</label>
@@ -8,7 +9,7 @@ const SearchJob = ({search, setSearch}) => {
         id="search"
         type="text"
         role="searchbox"
-        placeholder="Search Items"
+        placeholder="Search Job Listings"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       ></input>
