@@ -2,7 +2,9 @@ import React from 'react'
 import jobs from './JobListing.json';
 
 
+
 const Content = () => {
+
   return (
     <main>
 
@@ -26,7 +28,7 @@ const Content = () => {
 
           </div>
 
-        ))};
+        ))}
 
       </div>
 
@@ -34,7 +36,7 @@ const Content = () => {
 
   </main>
 
-  )
-}
+  );
+};
 
-export default Content
+export default Content;

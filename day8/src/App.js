@@ -93,7 +93,11 @@ function App() {
         handleSubmit={handleSubmit}
       />
       <Main
-        items={items.filter((item) => item.item.includes(search))}
+        items={items.filter(
+          (item) =>
+            item &&
+            item.item.toLowerCase().includes(search && search.toLowerCase())
+        )}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
