@@ -5,7 +5,7 @@ const Contact = () => {
     <main>
       <section id="contact-form-section">
         <h2>Contact Form</h2>
-        <div class="form-div">
+        <div className="form-div">
           <form id="contact-form" action="submit_form.php" method="post">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required />

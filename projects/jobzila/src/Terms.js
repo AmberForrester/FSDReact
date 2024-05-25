@@ -5,7 +5,7 @@ const Terms = () => {
     <main>
       <section id="terms-section">
         <h2>Terms of Service</h2>
-        <div class="terms-listing">
+        <div className="terms-listing">
           <p>
             Please read these terms of service carefully before using our
             website.

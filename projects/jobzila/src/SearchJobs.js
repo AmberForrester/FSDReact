@@ -31,9 +31,9 @@ const SearchJobs = () => {
 
   return (
     <main>
-      <section id="job-search-section" class="container">
+      <section id="job-search-section" className="container">
         <h2>Your Dream Job Awaits</h2>
-        <div class="find-job-div">
+        <div className="find-job-div">
         <form id="search-form" onSubmit={handleSearch}>
           <input
             type="text"

@@ -5,7 +5,7 @@ const Privacy = () => {
     <main>
       <section id="privacy-section">
         <h2>Privacy Policy</h2>
-        <div class="privacy-policy">
+        <div className="privacy-policy">
           <p>
             Your privacy is important to us. This privacy policy explains how we
             collect, use, and protect your personal information when you use our

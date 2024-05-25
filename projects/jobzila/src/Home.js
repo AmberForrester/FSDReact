@@ -6,7 +6,7 @@ const Home = () => {
       <section id="hero">
         <section id="hero-section">
           <h2>Welcome to JobZila</h2>
-          <p class="vission-statment">
+          <p className="vission-statment">
             Our Vision: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Quisque in odio ac risus vestibulum tincidunt vel et eros. Integer
             vulputate turpis eget accumsan rhoncus. Etiam vitae risus in sem
