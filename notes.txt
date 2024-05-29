@@ -109,3 +109,29 @@ npx json-server -p 3500 -w data/db.json
 
   check the individual items with their ids  
   http://localhost:3500/items/1
+
+
+  CRUD Operation
+  Create 
+  Read 
+  Update 
+  Delete 
+
+  React Router - installing router 
+
+  npm install react-router-dom@6 
+
+  MongoDB Installation 
+
+  **MongoDB Community Server Download**
+
+[Download MongoDB Community Server](https://www.mongodb.com/try/download/community)
+
+[MongoDB Compass Download (GUI)](https://www.mongodb.com/try/download/compass)
+ 
+[Download MongoDB Command Line Database Tools](https://www.mongodb.com/try/download/database-tools)
+
+[Installing the Database Tools on Windows](https://www.mongodb.com/docs/database-tools/installation/installation-windows/)
+ 
+[MongoDB Shell Download](https://www.mongodb.com/try/download/shell)
+ 
