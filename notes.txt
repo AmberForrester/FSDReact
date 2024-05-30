@@ -127,11 +127,43 @@ npx json-server -p 3500 -w data/db.json
 
 [Download MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
+
 [MongoDB Compass Download (GUI)](https://www.mongodb.com/try/download/compass)
+
+Open the Compass ("execute the compass - run the program")
+Press Connect
+Press + beside Databases to create a New Database 
+
  
 [Download MongoDB Command Line Database Tools](https://www.mongodb.com/try/download/database-tools)
 
+
 [Installing the Database Tools on Windows](https://www.mongodb.com/docs/database-tools/installation/installation-windows/)
+*** change the path for saving to C:\Program Files\MongoDB\Server\7.0\
+
  
 [MongoDB Shell Download](https://www.mongodb.com/try/download/shell)
- 
+
+To open the Shell Download -> C:\Users\***<your_username>***</your_username>\AppData\Local\Programs\mongosh
+
+Open the mongosh.exe
+Press Enter
+> type in: show dbs  
+
+Importing the collection 
+Open Command Prompt 
+
+Go to the mongoimport utility in the bin folder using:
+cd 'C:\Program Files\MongoDB\Server\7.0\bin\'
+
+Then call the mongoimport with any db name you like with the appropriate collections path:
+mongoimport --db=cook --jsonArray C:\code\React\FSDReact\FSDReact\mongoDB\collection\examples.json
+
+After all the files are uploaded from the collection folder.
+
+> show dbs
+
+switch the db to cook 
+> use cook 
+
+> show collections
