@@ -167,3 +167,13 @@ switch the db to cook
 > use cook 
 
 > show collections
+
+In MongoDB documents are: D - field value pairs stored in BSON
+
+To find a document with the title Apple Pie and return only the title: A - db.recipes.find({"title": "Apple Pie"}, {"title": 1})
+
+In a document you can store: B - Strings, Arrays, Objects, Documents, Numbers, Booleans, etc. 
+
+To sort by title in descending order you would use: C - db.recipes.find({}).sort({title: -1})
+
+To sort by title in ascending order you would use: A - db.recipes.find({}).sort({title:1})
