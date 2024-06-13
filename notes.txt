@@ -110,70 +110,204 @@ npx json-server -p 3500 -w data/db.json
   check the individual items with their ids  
   http://localhost:3500/items/1
 
+CRUD operation
+Create Read update and delete
 
-  CRUD Operation
-  Create 
-  Read 
-  Update 
-  Delete 
 
-  React Router - installing router 
+//React Router
+//installing router 
 
-  npm install react-router-dom@6 
+npm install react-router-dom@6
 
-  MongoDB Installation 
+/***************************************/
+MongoDB installation
 
-  **MongoDB Community Server Download**
-
+**MongoDB Community Server Download**
 [Download MongoDB Community Server](https://www.mongodb.com/try/download/community)
-
-
 [MongoDB Compass Download (GUI)](https://www.mongodb.com/try/download/compass)
+execute the compass (run the program)
+and press connect db
 
-Open the Compass ("execute the compass - run the program")
-Press Connect
-Press + beside Databases to create a New Database 
 
- 
+
 [Download MongoDB Command Line Database Tools](https://www.mongodb.com/try/download/database-tools)
-
+chnage the path to C:\Program Files\MongoDB\Server\7.0\
 
 [Installing the Database Tools on Windows](https://www.mongodb.com/docs/database-tools/installation/installation-windows/)
-*** change the path for saving to C:\Program Files\MongoDB\Server\7.0\
 
- 
 [MongoDB Shell Download](https://www.mongodb.com/try/download/shell)
+select package as .msi
+C:\Users\<your_usename>\AppData\Local\Programs\mongosh
 
-To open the Shell Download -> C:\Users\***<your_username>***</your_username>\AppData\Local\Programs\mongosh
+Execute the mongosh.exe
+press enter
+>show dbs
 
-Open the mongosh.exe
-Press Enter
-> type in: show dbs  
+//Importing the collection
+go to the mongoimport utility in the bin folder
 
-Importing the collection 
-Open Command Prompt 
-
-Go to the mongoimport utility in the bin folder using:
 cd 'C:\Program Files\MongoDB\Server\7.0\bin\'
 
-Then call the mongoimport with any db name you like with the appropriate collections path:
-mongoimport --db=cook --jsonArray C:\code\React\FSDReact\FSDReact\mongoDB\collection\examples.json
+and call mongoimport with any db name you like with the appropriate collections path.
 
-After all the files are uploaded from the collection folder.
+>mongoimport --db=cook --jsonArray D:\CBC\SEProject\fsd_jan_2024\react\FSDReact\mongoDB\collection\examples.json
 
-> show dbs
+after all the files are uploaded from the collection folder.
 
-switch the db to cook 
-> use cook 
+>show dbs
+
+switch the db to cook
+> use cook
 
 > show collections
+>db.recipes.find();
 
-In MongoDB documents are: D - field value pairs stored in BSON
+>db.recipes.find().count();
 
-To find a document with the title Apple Pie and return only the title: A - db.recipes.find({"title": "Apple Pie"}, {"title": 1})
 
-In a document you can store: B - Strings, Arrays, Objects, Documents, Numbers, Booleans, etc. 
+>db.recipes.find({}, {"title":1}).limit(3);
 
-To sort by title in descending order you would use: C - db.recipes.find({}).sort({title: -1})
 
-To sort by title in ascending order you would use: A - db.recipes.find({}).sort({title:1})
+
+#### In MongoDB Documents are:
+
+a) Fields of strings, srrays and objects stored in Text
+b) Fields and values stored in JSON
+c) Fields with columns containing strings, numbers and booleans
+d) Field value pairs stored in BSON
+
+answer: D
+
+
+
+#### To find a Document with the title Apple Pie and return only the title:
+
+a) `db.recipes.find({"title": "Apple Pie"}, {"title": 1})`
+b) `db.recipes.find({"title": 1}, {"title": "Apple Pie"})`
+c) `db.recipes.find({"title": "Apple Pie"}, "title": 1)`
+d) `db.recipes.find({"title": "Apple Pie", "title": 1})`
+
+answer: a
+
+
+#### In a Document you can store:
+
+a) Just Strings and Numbers
+b) Strings, Arrays, Objects, Documents, Numbers, Booleans, Etc.
+c) Either Strings, Numbers or Booleans
+d) Multiple different kinds of Strings
+
+answer : B
+
+#### To sort by title in descending order you would use ...
+
+a) `db.collection.find({}).sort({"title" : 1})`
+b) `db.collection.find({"title" : -1}).sort()`
+c) `db.collection.find({}).sort({"title" : -1})`
+d) `db.collection.find({}, {"title": -1})`
+
+
+db.recipes.find({}, {"title":1, "cook_time":1}).sort({title:-1});
+
+
+create a recipe documnet with 4 fields one array object and one document inside an array
+
+********************************************************
+FTP
+
+FileZila
+
+WinSCP
+  FTPs://202.30.60.96
+  ipAddress : 202.30.60.96
+  userName: abc
+  password: *********
+
+  
+
+Node documentation  Link
+https://nodejs.org/docs/latest/api/
+
+
+NPM
+//https://www.npmjs.com
+/search
+/documentation
+https://docs.npmjs.com/
+//CLI
+
+//NPM Commands
+//To install NPM
+//>npm install 
+or 
+//>npm i
+or
+//>npm add
+
+//To install nodemon
+//https://www.npmjs.com/package/nodemon
+npm i nodemon -g
+
+
+//How to initializing the npm
+>npm init
+//this will generate the package.json file
+
+>npm init -y
+
+//add a package
+//npm i date-fns
+
+add .gitignore file in the root directory and place node_modules in it.
+
+//to include the node packages back run the install
+>npm install
+
+//To install the nodemon as a dev dependency.
+>npm i nodemon --save-dev
+or 
+>npm i nodemon -D
+
+in the package.json file add the following key-values
+"scripts": {
+    
+
+    "start" : "node index",
+    "dev" : "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+>npm start
+>npm run dev
+
+//Adding uuid dependency
+>npm i uuid
+
+
+
+ "nodemon": "^3.1.3"
+ "uuid": "^10.0.0"
+
+
+ "nodemon": "*" //get the latest version
+ "nodemon": "^3.1.3"
+ 3 means major version
+ 1 means minor version
+ 3 means patch version
+ "nodemon": "^3.1.3" install the latest minor version in 3 not the major
+ "nodemon": "~3.1.3" install the latest patch version in 3 not the major not the minor
+ "nodemon": "3.1.3" only this version
+
+ //Uninstalling the package
+ >npm un
+ >npm rm
+ >npm uninstall
+
+ -D
+ -g 
+
+ //Event Emitter
+
+
+ //WebServer
+ 
