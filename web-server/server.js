@@ -17,25 +17,24 @@ const serveFile = async (filePath, contentType, response) => {
     try { // This code makes application aware of more types of data. 
 
         const rawData = await fsPromises.readFile(filePath, !contentType.includes('images') ? 'utf8' : '');
-
-        const data = contentType === 'application/json' ? JSON.parse(rawData): rawData;
+        const data = contentType=== 'application/json' ? JSON.parse(rawData): rawData;
 
         response.writeHead(
-
-            filePath.includes('error_404.html') ? 404: 200,{'content-Type':contentType} 
+        
+            filePath.includes('error_404.html')? 404: 200 ,
+            {'content-Type':contentType}
         );
-
-        response.end(contentType==='application/json' ? JSON.stringify(data): data);
-
+        response.end(contentType === 'application/json' ? JSON.stringify(data): data);
+        
     }
 
-    catch(err) {
-
+    catch (err) {
         console.log(err);
-        myEmitter.emit('mylogs', `${err.name} \t ${err.message}` , 'errorLogs.txt');
-        response.statusCode = 500; //server error code 
-        response.end();
-
+        myEmitter.emit('mylogs', `${err.name} \t ${err.message}` ,'errorLogs.txt' );
+        if (!response.headersSent) {
+            response.statusCode = 500; // server error code 
+            response.end();
+        }
     }
 }
 
@@ -97,11 +96,9 @@ const myServer = http.createServer((req,res) =>{
 
         default:
             contentType = 'text/html'
-
     } 
 
     filePath =
-
     contentType === 'text/html' && req.url ==='/'
 
     // Instead of writing if/else statements you can create Ternary Statements then complete chaining:
@@ -110,11 +107,10 @@ const myServer = http.createServer((req,res) =>{
 
     // Then with chaining there is true or false:
 
-    :contentType === 'text/html' && req.url.slice(-1)//-1 is telling it to pick up the last URL no matter what. 
-    === '/'
+    :contentType === 'text/html' && req.url.slice(-1) === '/'
+    //-1 is telling it to pick up the last URL no matter what. 
 
     // Creating the checks:
-
     ? path.join(__dirname, 'views', 'index.html')
 
     :contentType === 'text/html'
@@ -123,17 +119,18 @@ const myServer = http.createServer((req,res) =>{
 
     : path.join(__dirname, req.url); // This line of code instructs that no matter what pick up the directory name + URL. 
 
-    if (!myExtension&&req.url.slice(-1) !== '/')
+    if (!myExtension&&req.url.slice(-1) !== '/') {
 
-        filePath += '.html' // This part of the code starting with if means that if someone doesnt have the extension it will automatically print html, and serve them the page. 
-    
-    //console.log(filePath);
+        filePath+='.html' // This part of the code starting with if means that if someone doesnt have the extension it will automatically print html, and serve them the page. 
+            
+            //console.log(filePath);
+
+    }
 
     const fileExist = fs.existsSync(filePath);
 
     if (fileExist) {
         // create a function to serve the page and get the user the file. 
-
         serveFile(filePath, contentType, res);
     }
 
@@ -144,15 +141,15 @@ const myServer = http.createServer((req,res) =>{
             case 'old-page.html':
                 res.writeHead(301, {'Location': '/new-page.html'}); //Header is Location and page to server is /new-page.html
                 res.end();
-
                 break;
 
             case 'www-page-html':
                 res.writeHead(301, {'Location': '/'}); 
                 res.end();
-
                 break;
             default: 
+                serveFile(path.join(__dirname, 'views', 'error_404.html'), 'text/html', res);
+                // If page doesnt exist we want to throw this error page. 
         }
 
         console.log(path.parse(filePath)); //parse allowing you to show objects like the root, dir, base:'in html'(showing the file name), ext, name - giving alot of background information. 
@@ -160,21 +157,10 @@ const myServer = http.createServer((req,res) =>{
         //Error codes: 100 info | 200 successfull | 300 redirect | 400 error | 500 server. 301 = redirect, 404 = server cannot find the requested resource(url)
     }
 
-    serveFile(path.join(__dirname, 'views', 'error_404.html'), 'text/html', res);
-    // If page doesnt exist we want to throw this error page. 
-
-    
-}
-
-);
+});
 
 // Creating the listener: requires 2 parameters, 1.Port#, 2.Host names. 
 myServer.listen(myPORT, () => console.log(`My server is using port ${myPORT}`));
-
-
-
-
-
 
 
 
@@ -183,4 +169,3 @@ myServer.listen(myPORT, () => console.log(`My server is using port ${myPORT}`));
 
 //myEmitter.on('mylogs', (msg)=>myEventLogs(msg));
  //   myEmitter.emit('mylogs', 'log item emitted' );
-
