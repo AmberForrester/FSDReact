@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+/* import React, { useState } from 'react'
 
 const Addjob = () => {
 
@@ -62,4 +62,4 @@ const Addjob = () => {
   );
 };
 
-export default Addjob;
+export default Addjob; */
