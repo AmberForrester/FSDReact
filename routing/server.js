@@ -10,9 +10,6 @@ const {logger} = require('./myCustomMiddleware/eventLog');
 app.use(logger);
 
 
-
-
-
 // Middleware: define these routes before other routes -
 
 // Built in Middleware - This piece of code is used in context of data from a form, posting that data from the form to the server, Middleware is doing this:
