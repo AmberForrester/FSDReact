@@ -76,14 +76,36 @@ app.get('/old-page(.html)?', (req, res) => {
 
 
 
-// app.use for handling middleware - no regular expressions(regex)
-// app.all for all http requests - can use regex
+// app.all:
+// * Use for all http requests - can use regex
+// * if,checks for handling 404 errors 
 
+// Refactor app.get('/*', code - to do: if anything apart from routes, given the user an error. Giving more options no json, no html, giving more options + check status ->
 
-
-app.get('/*',(req, res)=>{
+/* app.get('/*',(req, res)=>{
    res.sendFile(path.join(__dirname, 'views', 'error_404.html'));
-   });
+   }); */
+
+app.all('*', (req,res) =>{
+
+   res.status(404);
+      if (req.accepts('html')){
+
+         res.sendFile(path.join(__dirname, 'views', 'error_404.html'));
+      }
+
+      else if (req.accepts('json')){
+
+         res.json({'error':'Page not found error 404'});
+// Pass the key:value pair above, key = error, value = message
+      }
+
+      else {
+         res.type('txt').send("Problem displaying page error 404")
+      }
+});
+
+
 
 // Route handlers
 app.get('/hello(.html)?', (req, res, next) => {
@@ -126,7 +148,10 @@ app.use(function(err, req, res, next){
 // The piece of code above is controlling how the error is seen by the user. 
 app.use('errorHandler');
 
-// Removing the || !origin with the const corsOptions code to see the code work. 
+// Removing the || !origin with the const corsOptions code to see the code work.
+
+// app.use for handling middleware - no regular expressions(regex)
+
 
 
 //listner
