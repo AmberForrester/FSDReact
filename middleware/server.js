@@ -1,10 +1,12 @@
-
 const path = require('path');
 const myPORT = process.env.PORT || 3400;
 
 const express = require('express');
 const app = express()
 const {logger} = require('./myCustomMiddleware/eventLog');
+
+//import errorHandler.js module into server.js:
+const errorHandler = require('./myCustomMiddleware/errorHandler');
 
 
 const cors = require('cors');
@@ -24,7 +26,8 @@ const corsOptions = {
 
                   // -1 allows whitelist to pick up URL and allow it 
       if (whiteList.indexOf(origin) !== -1 || !origin) {
-         
+            // *** USING THIS -> || !origin : IS ONLY FOR DEVELOPMENT NOT PRODUCTION
+
          // if no error, then whatever URL coming in allow to be true
          callback(null, true);
       }
@@ -43,7 +46,6 @@ app.use(cors(corsOptions));
 
 
 
-
 // Middleware: define these routes before other routes -
 
 // Built in Middleware - This piece of code is used in context of data from a form, posting that data from the form to the server, Middleware is doing this:
@@ -57,6 +59,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 // This code is saying "go get these static files from the public folder".
 
+
+
 app.get('^/$|/index(.html)?', (req, res) => {
    //res.sendFile('./views/index.html', { root: __dirname });
    res.sendFile(path.join(__dirname, 'views', 'index.html'));
@@ -69,6 +73,13 @@ app.get('/my_new_page(.html)?', (req, res) => {
 app.get('/old-page(.html)?', (req, res) => {
    res.redirect(301, '/new-page.html'); //302 by default
 });
+
+
+
+// app.use for handling middleware - no regular expressions(regex)
+// app.all for all http requests - can use regex
+
+
 
 app.get('/*',(req, res)=>{
    res.sendFile(path.join(__dirname, 'views', 'error_404.html'));
@@ -100,6 +111,22 @@ const three = (req, res) => {
 }
 
 app.get('/chain(.html)?', [one, two, three]);
+
+
+/* // Error: if the URL does not exist, we do not want to expose our code - for example the else created sensitve code exposure with senitive information. So now we create a custom error handler to fix that + place it after the routes have been defined ( directly above) - 
+
+app.use(function(err, req, res, next){
+
+   console.log(err.stack);
+   res.Status(500).send(err.message)
+});
+ */
+// The code above to handle the error was refactored and used as a module in errorHandler.js - then exported into here the server.js. 
+
+// The piece of code above is controlling how the error is seen by the user. 
+app.use('errorHandler');
+
+// Removing the || !origin with the const corsOptions code to see the code work. 
 
 
 //listner
