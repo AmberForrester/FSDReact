@@ -14,3 +14,15 @@
 06/17/2024 11:11:54	 79dbfeee-88c8-47f9-872e-e2507d679467 	GET	undefined	/xyz
 06/17/2024 11:11:54	 9c4893f4-274f-4830-95d6-0121cb03ce59 	GET	undefined	/images/Error404-2.jpg
 06/17/2024 11:11:54	 e637509d-e24b-4132-870c-da50d6d298ef 	GET	undefined	/favicon.ico
+06/23/2024 20:20:47	 2a1a1913-076a-4d9a-83a4-9c579ea43aa5 	GET	undefined	/index
+06/23/2024 20:20:48	 20fd7d3f-5262-4afd-af0a-2d4f3e6ead44 	GET	undefined	/css/myStyle.css
+06/23/2024 20:20:48	 4b2f7555-14a8-46be-8eb9-847a87de262b 	GET	undefined	/favicon.ico
+06/23/2024 20:20:58	 e102e97f-e92e-4f89-8b52-0c159cd0a501 	GET	undefined	/subfolder
+06/23/2024 20:21:07	 9f2f6ced-90ed-4676-9dd3-ebf6c6c0eacb 	GET	undefined	/mytest
+06/23/2024 20:21:07	 fb79656f-973e-4ad3-878e-085f6375e8bf 	GET	undefined	/images/Error404-2.jpg
+06/23/2024 20:21:55	 6c955c42-6df1-4efb-a78c-5dbd0fd1d69b 	GET	undefined	/subfolder/mytest
+06/23/2024 20:22:21	 8b653cd7-83c9-4834-813a-9b5542ba2404 	GET	undefined	/index
+06/23/2024 20:22:21	 0dcad507-ce15-4cb7-ba6c-d921fe4dade4 	GET	undefined	/css/myStyle.css
+06/23/2024 20:24:04	 33a5273c-a2b3-468c-86ae-cbf13137d512 	GET	undefined	/subfolder/mytest
+06/23/2024 20:24:10	 0ca76564-f1b2-42a5-b833-de7b4346c44d 	GET	undefined	/eublaburub
+06/23/2024 20:24:10	 2ae3b754-ad4f-43fd-88e5-60bf08c2bec0 	GET	undefined	/images/Error404-2.jpg

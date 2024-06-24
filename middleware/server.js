@@ -146,7 +146,7 @@ app.use(function(err, req, res, next){
 // The code above to handle the error was refactored and used as a module in errorHandler.js - then exported into here the server.js. 
 
 // The piece of code above is controlling how the error is seen by the user. 
-app.use('errorHandler');
+app.use(errorHandler);
 
 // Removing the || !origin with the const corsOptions code to see the code work.
 
