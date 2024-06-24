@@ -5,6 +5,9 @@ const data = {
     setjobs: function (newJobs) { this.jobs = newJobs; }
 };
 
+const logger = require('../mylogs/logger');
+logger.info('Application has started');
+
 
 
 // "Chaining": creating different methods for a particular route.
@@ -14,6 +17,8 @@ const data = {
 
 const getAlljobs = (req, res) => {
 // Custom logic = "what we want to do" => Do not have to do anything with the data, just throw the response returning all of the data. 
+
+    logger.info('Fetching all jobs');
 
         res.json(data.jobs);
     // Pick up the response, and send all data from jobs. 
@@ -29,6 +34,9 @@ const updateJob = (req, res) => {
 
         if (!job) {
             // If the Job does NOT exist - then return error + message 
+
+            logger.error(`Job ID ${req.body.jobid} not found`);
+
             return res.status(400).json({ "message": `Job ID ${req.body.jobid} not found.` });
                 // Inform user that the Job ID requested does not exist. 
         }
@@ -45,6 +53,8 @@ const updateJob = (req, res) => {
 
         //Update the jobs property of the data object to the newly created updatedJobs array.
         data.setjobs(updatedJobs);
+
+        logger.info(`Job updated: ${JSON.stringify(job)}`);
 
         // Then passing the updated jobs to the user. 
         res.json(data.jobs);
@@ -69,6 +79,8 @@ const createJob = (req, res) => {
     // If NO title, company, location, description, or applyLink is given ...
     if (!newJob.title || !newJob.company || !newJob.location || !newJob.description || !newJob.applyLink) {
 
+        logger.error('Failed to create job: All fields are required');
+
         // Send this response code + pass a message to the user. 
         return res.status(400).json({ 'message': 'All fields are required.' });
     }
@@ -76,6 +88,8 @@ const createJob = (req, res) => {
     //setjobs is a variable defined at the top. 
     data.setjobs([...data.jobs, newJob]);
                 // ... is using the Spread Operator to find all the current jobs -> then take the new data + add it to the Job data. 
+
+    logger.info(`Job created: ${JSON.stringify(newJob)}`);
 
     res.status(201).json(data.jobs);
     // As part of the request we want to change and update the status as being successful + attaching json data to it. 
@@ -89,6 +103,9 @@ const deleteJob = (req, res) => {
     const job = data.jobs.find(job => job.jobid === req.body.jobid);
     
     if (!job) {
+
+        logger.error(`Job ID ${req.body.jobid} not found`);
+
         // If it does NOT exist or null -> return status code + message
         return res.status(400).json({ "message": `Job ID ${req.body.jobid} not found` });
     }
@@ -98,6 +115,8 @@ const deleteJob = (req, res) => {
 
     data.setjobs(updatedJobs);
 
+    logger.info(`Job deleted: ${req.body.jobid}`);
+
     res.json(data.jobs);
     // Throwing result out to the user, passing the updated data ID to the json data.jobs. 
 };
@@ -106,7 +125,7 @@ const deleteJob = (req, res) => {
 
 const getJob = (req, res) => {
 
-    //console.log(`Fetching job with ID: ${req.params.id}`);
+    logger.info(`Fetching job with ID: ${req.params.id}`);
     // See what parameters are being passed and identify any issues. 
 
     // Bring the ID parameter directly as string
@@ -117,11 +136,14 @@ const getJob = (req, res) => {
     // Filter out the data by using find = get the data after we filter it, and then pass it back to a singular job. 
     
     if (!job) {
+
+        logger.error(`Job ID ${jobId} not found`);
         // If job does NOT exist then ... 
         return res.status(400).json({ "message": `Job ID ${jobId} not found` });
     }
         // Return error code + a message to the user.
     
+    logger.info(`Job found: ${JSON.stringify(job)}`);
     res.json(job);
     // Pick up the response(res) + send all data to jobs but USE single job as the response.
 };

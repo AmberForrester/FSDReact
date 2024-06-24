@@ -1,0 +1,10 @@
+2024-06-24T05:06:01.102Z [info]: Application has started
+2024-06-24T05:06:23.670Z [info]: Fetching all jobs
+2024-06-24T05:06:54.593Z [info]: Fetching job with ID: 5
+2024-06-24T05:06:54.593Z [info]: Job found: {"jobid":"5","title":"Data Scientist","company":"Data Analytics Co.","location":"Toronto, ON","description":"We are looking for a data-driven Data Scientist to analyze and interpret data...","applyLink":"https://example.com/apply"}
+2024-06-24T05:07:13.916Z [info]: Fetching job with ID: 10
+2024-06-24T05:07:13.916Z [info]: Job found: {"jobid":"10","title":"Software Engineer","company":"123 Tech Inc.","location":"Brampton, ON","description":"We are hiring a skilled Software Engineer to develop innovative software...","applyLink":"https://example.com/apply"}
+2024-06-24T05:09:33.718Z [info]: Fetching all jobs
+2024-06-24T05:10:37.800Z [info]: Job updated: {"jobid":"1","title":"Front-end Developer","company":"ABC Company","location":"Updated location from Toronto, ON to Markham, ON","description":"We are seeking a talented Front-end Developer to join our team...","applyLink":"https://example.com/apply"}
+2024-06-24T05:12:14.810Z [info]: Fetching job with ID: 25
+2024-06-24T05:12:14.811Z [error]: Job ID 25 not found
