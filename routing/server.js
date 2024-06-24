@@ -61,8 +61,11 @@ app.use(express.json());
 // Subfolder now routed using the router - (pages are resources for the server)
 app.use('/subfolder', require('./routes/subdir'));
 
-
+// Define another route:
 app.use('/', require('./routes/root'));
+
+// Define another route:
+app.use('/employees', require('./routes/api/employees'));
 
 
 
@@ -102,41 +105,6 @@ app.all('*', (req,res) =>{
          res.type('txt').send("Problem displaying page error 404")
       }
 });
-
-
-
-// Route handlers
-app.get('/hello(.html)?', (req, res, next) => {
-   console.log('attempted to load hello.html');
-   next()
-}, (req, res) => {
-   res.send('Hello World!');
-});
-
-
-// chaining route handlers
-const one = (req, res, next) => {
-   console.log('one');
-   next();
-}
-
-const two = (req, res, next) => {
-   console.log('two');
-   next();
-}
-
-const three = (req, res) => {
-   console.log('three');
-   res.send('Finished!');
-}
-
-app.get('/chain(.html)?', [one, two, three]);
-
-
-
-
-
-
 
 
 
