@@ -1,5 +1,4 @@
-
-
+// Announce data as an object key: value:
 const data = {
     employees: require('../model/employees.json'),
     // Give route for ../ = come out of controllers, go into model folder, and get the employees.json file
