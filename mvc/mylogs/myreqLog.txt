@@ -40,3 +40,11 @@
 06/23/2024 21:09:05	 6d223368-f448-4ec2-bb0f-27ab3270147d 	GET	undefined	/employees
 06/23/2024 21:09:12	 4f81eb95-529b-48a1-9f2b-27a4bfb14cac 	GET	undefined	/employees/4
 06/23/2024 22:35:24	 72d9cbe0-8c8d-4db0-bb12-241deceb85b7 	GET	undefined	/employees
+06/23/2024 22:39:11	 ad59cf5f-d53c-4ea7-af3e-c6796db92dc3 	POST	undefined	/employees/
+06/23/2024 22:40:01	 0d51760a-e2c6-4992-bcb4-e0bec54aade1 	PUT	undefined	/employees/
+06/23/2024 22:40:35	 21f440fa-331e-462b-8327-82b593aa923a 	DELETE	undefined	/employees/
+06/23/2024 22:40:47	 3ea91415-af61-41d3-9b7d-98cee3cd23f9 	PUT	undefined	/employees/
+06/23/2024 22:40:55	 c7b29c2c-8cb3-4d9b-898a-b9addab9bf20 	PUT	undefined	/employees/
+06/23/2024 22:41:18	 0da5eb77-eb33-4837-a5ba-9ef234ff671c 	PUT	undefined	/employees/
+06/23/2024 22:41:26	 445499b3-3ba2-4e22-86c1-3cbf4af50026 	PUT	undefined	/employees/
+06/23/2024 22:41:59	 b169129c-aa07-49d3-bb2a-e1d48d3b5ed5 	GET	undefined	/employees/
