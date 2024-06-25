@@ -22,3 +22,10 @@
 2024-06-24T15:46:27.023Z [info]: Job found: {"jobid":"13","title":"Front-end Developer","company":"ABC Company","location":"Montreal, QC","description":"We are seeking a talented Front-end Developer to join our team...","applyLink":"https://example.com/apply"}
 2024-06-24T15:47:32.266Z [info]: Job created: {"jobid":"131","title":" POSTED Front-end Developer","company":"POSTED ABC Company","location":"POSTED Montreal, QC","description":"POSTED We are seeking a talented Front-end Developer to join our team...","applyLink":"POSTED https://example.com/apply"}
 2024-06-24T15:48:04.690Z [info]: Job deleted: 131
+2024-06-25T00:28:44.886Z [info]: Application has started
+2024-06-25T00:28:58.085Z [info]: Fetching all jobs
+2024-06-25T00:29:20.138Z [info]: Fetching job with ID: 13
+2024-06-25T00:29:20.139Z [info]: Job found: {"jobid":"13","title":"Front-end Developer","company":"ABC Company","location":"Montreal, QC","description":"We are seeking a talented Front-end Developer to join our team...","applyLink":"https://example.com/apply"}
+2024-06-25T00:30:16.608Z [info]: Job created: {"jobid":"14","title":"NEW POSTED Front-end Developer","company":"NEW POSTED ABC Company","location":"NEW POSTED Montreal, QC","description":"NEW POSTED We are seeking a talented Front-end Developer to join our team...","applyLink":"NEW POSTED https://example.com/apply"}
+2024-06-25T00:31:42.394Z [info]: Job updated: {"jobid":"14","title":"POST UPDATED Front-end Developer","company":"POST UPDATED ABC Company","location":"POST UPDATED Montreal, QC","description":"POST UPDATED We are seeking a talented Front-end Developer to join our team...","applyLink":"POST UPDATED https://example.com/apply"}
+2024-06-25T00:32:09.622Z [info]: Job deleted: 14
