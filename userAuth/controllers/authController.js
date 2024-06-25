@@ -1,33 +1,61 @@
+// This block creates an object usersDB which manages the users.
+// users is loaded from ../model/users.json, which contains the user data.
+// setUsers is a function that updates the users array with new data.
+
 const usersDB = {
     users: require('../model/users.json'),
     setUsers: function (data) { this.users = data }
 }
+
+// This line imports the bcrypt library, which is used for hashing passwords and comparing hashed passwords.
 const bcrypt = require('bcrypt');
 
+// This line defines an asynchronous function handleLogin that will handle user login requests.
 const handleLogin = async (req, res)=>{
 
+    // This extracts the user and pwd (password) from the request body.
     const { user, pwd } = req.body;
 
+    // This checks if user or pwd is missing from the request body. If either is missing, it sends a 400 Bad Request response with a message indicating that both fields are required.
     if (!user || !pwd) return res.status(400).json({ 'message': 'Username and password are required.' });
 
-    //find user
+    // This line searches for a user in the usersDB.users array whose username matches the user provided in the request.
     const foundUser = usersDB.users.find(person => person.username === user)
 
     if (!foundUser) 
-        
-    return res.sendStatus(401); //Unauthorized 
+        //If no matching user is found, this line sends a 401 Unauthorized response.
+    return res.sendStatus(401);
     
-    // evaluate password 
+    // This line compares the provided password (pwd) with the stored hashed password (foundUser.pwd) using bcrypt.compare. It awaits the result since bcrypt.compare is asynchronous.
     const match = await bcrypt.compare(pwd, foundUser.pwd);
 
     if (match) {
-
-        // create JWTs
+        // If the passwords match, it sends a JSON response indicating a successful login. The comment mentions creating JWTs (JSON Web Tokens), which is typically the next step for maintaining sessions securely.
         res.json({ 'success': `User ${user} is logged in!` });
 
     } else {
+        //If the passwords do not match, it sends a 401 Unauthorized response.
         res.sendStatus(401);
     }
+
+    //return res.status(200).json({"message": "checking auth success"});
+    // A placeholder or for debugging purposes. It would send a 200 OK response with a message indicating successful authentication check if uncommented.
 }
 
+// This line exports the handleLogin function so it can be used in other parts of your application.
 module.exports = { handleLogin };
+
+
+
+
+// Basic breakdown of this function:
+// Import user data and bcrypt library.
+// Define an async function handleLogin to process login requests.
+// Extract user and pwd from the request body.
+// Check for missing user or pwd and return a 400 error if either is missing.
+// Find the user in the database.
+// If the user is not found, return a 401 Unauthorized error.
+// Compare the provided password with the stored password.
+// If the passwords match, return a success message (with a placeholder for JWT creation).
+// If the passwords don't match, return a 401 Unauthorized error.
+// Export the handleLogin function.
