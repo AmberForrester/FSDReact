@@ -8,3 +8,17 @@
 2024-06-24T05:10:37.800Z [info]: Job updated: {"jobid":"1","title":"Front-end Developer","company":"ABC Company","location":"Updated location from Toronto, ON to Markham, ON","description":"We are seeking a talented Front-end Developer to join our team...","applyLink":"https://example.com/apply"}
 2024-06-24T05:12:14.810Z [info]: Fetching job with ID: 25
 2024-06-24T05:12:14.811Z [error]: Job ID 25 not found
+2024-06-24T15:39:05.091Z [info]: Application has started
+2024-06-24T15:39:32.751Z [info]: Fetching all jobs
+2024-06-24T15:40:35.471Z [info]: Job created: {"jobid":"131","title":"POSTED Front-end Developer","company":"POSTED ABC Company","location":"POSTED Montreal, QC","description":"POSTED We are seeking a talented Front-end Developer to join our team...","applyLink":"POSTED https://example.com/apply"}
+2024-06-24T15:41:44.588Z [info]: Fetching all jobs
+2024-06-24T15:42:11.342Z [error]: Job ID 131 not found
+2024-06-24T15:42:17.313Z [info]: Job deleted: 131
+2024-06-24T15:43:46.489Z [info]: Application has started
+2024-06-24T15:43:52.713Z [info]: Application has started
+2024-06-24T15:45:50.772Z [info]: Application has started
+2024-06-24T15:46:06.237Z [info]: Fetching all jobs
+2024-06-24T15:46:27.022Z [info]: Fetching job with ID: 13
+2024-06-24T15:46:27.023Z [info]: Job found: {"jobid":"13","title":"Front-end Developer","company":"ABC Company","location":"Montreal, QC","description":"We are seeking a talented Front-end Developer to join our team...","applyLink":"https://example.com/apply"}
+2024-06-24T15:47:32.266Z [info]: Job created: {"jobid":"131","title":" POSTED Front-end Developer","company":"POSTED ABC Company","location":"POSTED Montreal, QC","description":"POSTED We are seeking a talented Front-end Developer to join our team...","applyLink":"POSTED https://example.com/apply"}
+2024-06-24T15:48:04.690Z [info]: Job deleted: 131

@@ -1,1 +1,3 @@
 06/23/2024 20:21:55	 43d24c0b-2d77-436f-a192-1a3c749e6d11 	Error 	 ENOENT: no such file or directory, stat 'C:\code\FSDReact\routing\views\subfolder\mytest.html'
+06/24/2024 11:41:27	 a15fe78f-04d7-43e9-9125-91a2a9246ff4 	SyntaxError 	 Expected ',' or '}' after property value in JSON at position 20
+06/24/2024 11:41:37	 e1f54fbe-4a6d-4c8c-b02e-f70b825d4195 	SyntaxError 	 Expected ',' or '}' after property value in JSON at position 20

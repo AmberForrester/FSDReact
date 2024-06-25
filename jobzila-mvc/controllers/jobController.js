@@ -63,12 +63,13 @@ const updateJob = (req, res) => {
 
 
 const createJob = (req, res) => {
+    const newJobId = data.jobs.length ? parseInt(data.jobs[data.jobs.length - 1].jobid) + 1 : 1;
    
      const newJob = {
 // Declaring an object
 
         // Pick up the Job data + length = getting the entire length in real time, by using +1 -> moving the results to the jobid, title, company, location, description, or applyLink. 
-        jobid: data.jobs.length ? data.jobs[data.jobs.length - 1].jobid + 1 : 1,
+        jobid: newJobId.toString(),
         title: req.body.title,
         company: req.body.company,
         location: req.body.location,
