@@ -310,4 +310,49 @@ in the package.json file add the following key-values
 
 
  //WebServer
+
+ //Express
+ >npm install express --save
+
+https://expressjs.com
+
+https://expressjs.com/en/guide/routing.html
+
+//Routes
+
+//Route Handlers
+
+//Middleware
+//Types of Middleware
+Custom 
+Builtin
+Third Party
+
+//installing CORS 
+>npm i cors
+
+//routing
+
+
+//api Routes
+
+//http://localhost:3400/employees
+//http://localhost:3400/employees/1
+//http://202.20.30.40:3400/employees/1
+
+to test apis
+thunder client 
+or
+postman
+
+//n-tier 
+//MVC
+
+//
+to install bcrypt
+>npm i bcrypt
+node.bcrypt.js
+https://www.npmjs.com/package/bcrypt
+
+https://codahale.com/how-to-safely-store-a-password/
  
