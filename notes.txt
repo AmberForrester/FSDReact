@@ -308,9 +308,8 @@ in the package.json file add the following key-values
 
  //Event Emitter
 
-
  //WebServer
-
+ 
  //Express
  >npm install express --save
 
@@ -356,10 +355,17 @@ https://www.npmjs.com/package/bcrypt
 
 https://codahale.com/how-to-safely-store-a-password/
 
+//to register a new user/test
+
+http://localhost:3400/register
+body
+{
+   "user":"sadeed10","pwd":"abc12302@"
+  }
 
 
 
-// JWT
+////JWT
 Intro to JSON Web Tokens: https://jwt.io/introduction
 All You Need to Know About Storing JWT in the Frontend: https://dev.to/cotter/localstorage-vs-cookies-all-you-need-to-know-about-storing-jwt-tokens-securely-in-the-front-end-15id
 NPM jsonwebtoken package: https://www.npmjs.com/package/jsonwebtoken
@@ -368,4 +374,33 @@ Deleting Cookies: https://expressjs.com/en/api.html#res.clearCookie
 Cross-Site Scripting (XSS): https://owasp.org/www-community/attacks/xss/
 Cross-Site Request Forgery (CSRF): https://owasp.org/www-community/attacks/csrf
 REST Security Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html
- 
+
+
+>npm i jsonwebtoken cookie-parser dotenv
+
+to generate the token value go to node 
+>require('crypto').randomBytes(64).toString('hex');
+
+create a .env file 
+ACESS_TOKEN_SECRET = //token_value
+REFRESH_TOKEN_SECRET = //token_value
+
+and make sure its part of the gitignore file
+
+to register a user 
+method:  post
+url : http://localhost:3400/register
+ {
+        "user":"sadeed11","pwd":"abc12302@"
+       }
+
+method:  post
+url : http://localhost:3400/auth
+ {
+        "user":"sadeed11","pwd":"abc12302@"
+       }
+
+method:  get
+url : http://localhost:3400/employees
+
+with the token value in the Auth/Bearer
