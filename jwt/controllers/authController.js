@@ -7,6 +7,11 @@ const usersDB = {
     setUsers: function (data) { this.users = data }
 }
 
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const fsPromises = require('fs').promises;
+const path = require('path');
+
 // This line imports the bcrypt library, which is used for hashing passwords and comparing hashed passwords.
 const bcrypt = require('bcrypt');
 
@@ -32,9 +37,40 @@ const handleLogin = async (req, res)=>{
     if (match) {
         // If the passwords match, it sends a JSON response indicating a successful login. The comment mentions creating JWTs (JSON Web Tokens), which is typically the next step for maintaining sessions securely.
 
-        // create JWTs
-        
-        res.json({ 'success': `User ${user} is logged in!` });
+// Create JWTs BELOW - using the access token & refersh token we want 3 things: 1. username: for which the token is generated for, 2. process: to hold the token, 3. expiry time. 
+
+        const accessToken = jwt.sign(
+            {"username": foundUser.username},
+            process.env.ACCESS_TOKEN_SECRET,
+            {expiresIn: '30s'}
+        );
+
+        const refreshToken = jwt.sign(
+            {"username": foundUser.username},
+            process.env.REFRESH_TOKEN_SECRET,
+            {expiresIn: '1d'}
+        );
+
+// Saving refreshToken with the current user:
+
+    const otherUsers = usersDB.users.filter(person => person.username !== foundUser.username);
+
+    const currentUser = {...foundUser, refreshToken};
+    usersDB.setUsers([...otherUsers, currentUser]);
+    await fsPromises.writeFile(
+        path.join(__dirname, '..', 'model', 'users.json'),
+        JSON.stringify(usersDB.users)
+    );
+
+// For the production env: 
+// res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'None', secure: true, maxAge: 24 * 60 * 60 * 1000 });
+
+// For the development env, remove the secure:true - 
+res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+
+res.json({accessToken});
+
+        //nres.json({ 'success': `User ${user} is logged in!` });
 
     } else {
         //If the passwords do not match, it sends a 401 Unauthorized response.
@@ -47,7 +83,6 @@ const handleLogin = async (req, res)=>{
 
 // This line exports the handleLogin function so it can be used in other parts of your application.
 module.exports = { handleLogin };
-
 
 
 

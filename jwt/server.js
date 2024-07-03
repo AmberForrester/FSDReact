@@ -1,23 +1,21 @@
-const path = require('path');
-const myPORT = process.env.PORT || 3400;
-
 const express = require('express');
 const app = express()
-const {logger} = require('./myCustomMiddleware/eventLog');
-
-//import errorHandler.js module into server.js:
-const errorHandler = require('./myCustomMiddleware/errorHandler');
-
-
+const path = require('path');
 const cors = require('cors');
 const corsOptions = require('./controllers/corsController');
+const {logger} = require('./myCustomMiddleware/eventLog');
+const errorHandler = require('./myCustomMiddleware/errorHandler');
+const verifyJWT = require('./myCustomMiddleware/verifyJWT');
+const cookieParser = require('cookie-parser');
+
+const myPORT = process.env.PORT || 3400;
 
 
-//Custom Middleware
+//Custom Middleware Logger -
 app.use(logger);
 
 
-
+// Cross Origin Resource Sharing -
 app.use(cors(corsOptions));
 // What was done using const corsOptions: created an object with key:value, key:value. The origin = key, value = code created within the () => {}.
 
@@ -25,28 +23,28 @@ app.use(cors(corsOptions));
 
 // Middleware: define these routes before other routes -
 
-// Built in Middleware - This piece of code is used in context of data from a form, posting that data from the form to the server, Middleware is doing this:
+// Built in Middleware - This piece of code is used in context of data from a form, posting that data from the form to the server, Middleware is doing this. Handles urlencoded form data - 
 app.use(express.urlencoded({extended:false})); 
       //content type       //bring me the data
 
-// Bringing JSON Middleware:
+// Built in Middleware for JSON -
 app.use(express.json());
 
+// Middleware for Cookies - 
+app.use(cookieParser());
 
 
-// Need to call routes:
 
-
-// Define another route:
+// Define routes -
 app.use('/', require('./routes/root'));
-
-// Define another route:
 app.use('/register', require('./routes/register'));
-
-// Define another route:
 app.use('/auth', require('./routes/auth'));
+app.use('/refresh', require('./routes/refresh'));
+app.use('/logout', require('./routes/logout'));
 
-// Define another route:
+
+
+app.use(verifyJWT);
 app.use('/employees', require('./routes/api/employees'));
 
 
