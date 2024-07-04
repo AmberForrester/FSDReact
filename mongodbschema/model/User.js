@@ -11,9 +11,9 @@ const userSchema = new Schema(
         roles: {
             User: {
 
-                type: String, 
-                required: true
-            }
+                type: Number, 
+                default: 1111 // Default role for regular users
+            } 
         },
 
         password: {
@@ -27,7 +27,4 @@ const userSchema = new Schema(
     }
 );
 
-module.exports = mongoose.model(
-    'User',
-    userSchema
-);
+module.exports = mongoose.model('User', userSchema);
