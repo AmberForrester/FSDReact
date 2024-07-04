@@ -355,13 +355,28 @@ https://www.npmjs.com/package/bcrypt
 
 https://codahale.com/how-to-safely-store-a-password/
 
-//to register a new user/test
 
-http://localhost:3400/register
+//to register a new user/test
+method : post
+url : http://localhost:3400/register
+
 body
 {
    "user":"sadeed10","pwd":"abc12302@"
   }
+
+//To test user authentication
+method : post
+url : http://localhost:3500/auth
+
+body
+{
+   "user":"sadeed10","pwd":"abc12302@"
+  }
+
+//get all employees
+method : get
+url : http://localhost:3500/employees
 
 
 
@@ -404,3 +419,25 @@ method:  get
 url : http://localhost:3400/employees
 
 with the token value in the Auth/Bearer
+
+//////////////Incorporating the mongoDB and Schema
+//folder mongodbschema
+
+https://www.mongodb.com/
+signin
+https://cloud.mongodb.com/v2#/org/6655cda81e41fc386437f688/projects/create
+
+
+connection string
+mongodb+srv://test:<password>@employeedb.ygycrtb.mongodb.net/?retryWrites=true&w=majority&appName=employeeDB
+
+mongodb+srv://<username>:<password>@<databasename>.ygycrtb.mongodb.net/?retryWrites=true&w=majority&appName=<databasename>
+
+Mongoose documentation
+https://mongoosejs.com/docs/guide.html
+
+Install mongoose
+>npm i mongoose
+
+
+https://mongoosejs.com/docs/models.html

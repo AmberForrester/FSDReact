@@ -1,0 +1,3 @@
+06/23/2024 20:21:55	 43d24c0b-2d77-436f-a192-1a3c749e6d11 	Error 	 ENOENT: no such file or directory, stat 'C:\code\FSDReact\routing\views\subfolder\mytest.html'
+06/24/2024 22:29:44	 f7b6a02a-c398-4f20-ae11-f53c7068abf4 	SyntaxError 	 Unexpected token 'e', ..."rname" : test456,
+  "... is not valid JSON
