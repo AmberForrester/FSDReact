@@ -22,7 +22,7 @@ const handleLogin = async (req, res)=>{
     
     
     // This line compares the provided password (pwd) with the stored hashed password (foundUser.pwd) using bcrypt.compare. It awaits the result since bcrypt.compare is asynchronous + evaluates password - 
-    const match = await bcrypt.compare(pwd, foundUser.pwd);
+    const match = await bcrypt.compare(pwd, foundUser.password);
 
     if (match) {
         // If the passwords match, it sends a JSON response indicating a successful login. The comment mentions creating JWTs (JSON Web Tokens), which is typically the next step for maintaining sessions securely.
@@ -37,7 +37,7 @@ const handleLogin = async (req, res)=>{
                         }
                 },
             process.env.ACCESS_TOKEN_SECRET,
-            {expiresIn: '30s'}
+            {expiresIn: '40s'}
         );
 
         const refreshToken = jwt.sign(

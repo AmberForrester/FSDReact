@@ -13,18 +13,15 @@ const userSchema = new Schema(
 
                 type: Number, 
                 default: 1111 // Default role for regular users
-            } 
+            },
+            Editor: Number,
+            Admin: Number
         },
-
         password: {
             type: String,
             required: true
         },
-
-        refreshToken: {
-            type: String
-        }
-    }
-);
+        refreshToken: String
+    });
 
 module.exports = mongoose.model('User', userSchema);
