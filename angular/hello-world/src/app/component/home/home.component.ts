@@ -10,10 +10,11 @@ import { HousingService } from '../../housing.service';
   imports: [CommonModule, HousinglocationComponent],
   template: `
     <section>
-      <form>
-        <input type="text" placeholder="Filter by City" #filter>
-        <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+      <form (submit)="onSubmit($event, filter.value)">
+        <input type="text" placeholder="Filter by City" #filter required>
+        <button class="primary" type="submit">Search</button>
       </form>
+      <div *ngIf="showErrorMessage" class="error-message">Please enter a valid city name.</div>
     </section>
     <section class="results">
     <app-housinglocation *ngFor="let housingLocation of filteredLocationList" [housingLocation]="housingLocation"></app-housinglocation>
@@ -22,10 +23,12 @@ import { HousingService } from '../../housing.service';
   `,
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent {
   housingLocationList: HousingLocation[] = [];
   housingService: HousingService = inject(HousingService);
   filteredLocationList: HousingLocation[] = [];
+  showErrorMessage: boolean = false;
 
   constructor() {
     this.housingService.getAllHousingLocations().then((housingLocationList: HousingLocation[]) => {
@@ -34,9 +37,22 @@ export class HomeComponent {
     });
   }
 
-  filterResults(text: string ) {
-    if(!text) this.filteredLocationList = this.housingLocationList;
+  filterResults(text: string): boolean {
+    if (!text) {
+      this.filteredLocationList = this.housingLocationList;
+      return true;
+    } else {
+      this.filteredLocationList = this.housingLocationList.filter(housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase()));
+      return this.filteredLocationList.length > 0;
+    }
+  }
 
-    this.filteredLocationList = this.housingLocationList.filter(housingLocation => housingLocation?.city.toLowerCase().includes(text.toLowerCase()));
+  onSubmit(event: Event, filterValue: string) {
+    event.preventDefault();
+    if (!filterValue || !this.filterResults(filterValue)) {
+      this.showErrorMessage = true;
+    } else {
+      this.showErrorMessage = false;
+    }
   }
 }
