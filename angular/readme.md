@@ -96,3 +96,28 @@ https://youtu.be/30LWjhZzg50?si=03t0sBR2_V7sUJI_
 Learning Angular Tutorial App to build your first Angular Application
 https://www.youtube.com/playlist?list=PL1w1q3fL4pmj9k1FrJ3Pe91EPub2_h4jF
 
+*** Components ***
+- Can be nested and used inside another
+- TypeScript Component Class: provides a place for developers to build application logic, and make API calls for data or to defind event handlers
+- HTML Template: define UI template for the component. (small template = write in component class, complex template = own HTML file)
+- CSS Styles: Saas, CSS, LESS, component styles inline scoped to our components
+
+The following command creates a component w/in Terminal - 
+> ng generate component Home --standalone --inline-template
+
+> ng = Angular CLI
+> generate = create a component
+> component
+> Home = name of component
+> --standalone = creates a standalone component that decreases complexity (does not contain common module)
+> --inline-template = less files for us to manage 
+
+*** Using Images ***
+Save images in an images folder w/in public folder
+Then to call the image, you do not need to call the path, go and get the image for deployment setting 
+
+For example using -> /images/*image-name.jpg or .svg
+
+.listing-location::before {
+    content: url('/images/location-pin.svg') / '';
+  }
